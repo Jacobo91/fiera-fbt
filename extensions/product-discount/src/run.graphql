@@ -1,0 +1,27 @@
+query RunInput {
+  cart {
+    lines {
+      quantity
+      merchandise {
+        __typename
+        ...on ProductVariant {
+            id
+            product {
+              metafield(namespace: "custom", key: "frequently_bought_together") {
+                value
+              }
+            }
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "volume-discount", key: "function-configuration"){
+      value
+    }
+  }
+}
+
+
+
+
